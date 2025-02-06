@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Bidaiak</title>
+    <link rel="stylesheet" href="../css/estiloaErabiltzailea.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <div>
+        <img class="logoAlexJav" src="../img/logoAlexjavexplorers (1).png" alt="Logo" width="170" height="110"/>
+        <nav>
+            <a href="hasiera.html">Hasiera</a>
+            <a href="../index.html" onclick="seguruZaude(event)">Log out</a>
+        </nav>
+    </div>
+    <div id="overlay" class="overlay">
+        <div class="dialog">
+            <p>Seguru zaude atera nahi zarela?</p>
+            <button class="bai-btn" onclick="erantzunaBaiEz(true)">BAI</button>
+            <button class="ez-btn" onclick="erantzunaBaiEz(false)">EZ</button>
+        </div>
+    </div>
+</header>
+
+<form class="formulario" id="bidaiakForm" action="bidaiak.php" method="post">
+    <h1>Bidaiak erregistratu</h1>
+    
+    <label for="izena">Izena:</label>
+    <hr><br>
+    <input type="text" id="izena" name="izena" required><br>
+
+    <label for="bidaimota">Bidai mota:</label>
+    <hr><br>
+    <select id="bidaimota" name="bidaimota" required>
+        <option value="null" style="display:none;">--AUKERATU--</option>
+    </select><br>
+
+    <label for="hasiera_data">Hasiera data:</label>
+    <hr><br>
+    <input type="date" id="hasiera_data" name="hasiera_data" required><br>
+
+    <label for="amaiera_data">Amaiera data:</label>
+    <hr><br>
+    <input type="date" id="amaiera_data" name="amaiera_data" required><br>
+
+    <label for="egunak">Egunak:</label>
+    <hr><br>
+    <input type="text" id="egunak" name="egunak" readonly required><br>
+
+    <label for="herrialdeak">Herrialdea:</label>
+    <select name="herrialdeak" id="herrialdeak">
+        <option value="" style="display:none;">--Aukeratu herrialdea--</option>
+    </select><br>
+    <hr><br>
+
+    <label for="deskribapena">Deskribapena:</label>
+    <hr><br>
+    <textarea name="deskribapena" id="deskribapena" rows="4" placeholder="Idatzi zerbait"></textarea><br>
+
+    <label for="zerbitzuak">Kanpona agertzen diren zerbitzuak:</label>
+    <hr><br>
+    <textarea name="zerbitzuak" id="zerbitzuak" rows="4" placeholder="Idatzi zerbait"></textarea><br>
+
+    <table id="dataTable" style="display:none;">
+        <thead>
+            <tr>
+                <th>Izena</th>
+                <th>Bidai mota</th>
+                <th>Hasiera data</th>
+                <th>Amaiera data</th>
+                <th>Egunak</th>
+                <th>Herrialdeak</th>
+                <th>Deskribapena</th>
+                <th>Zerbitzuak</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se agregarán las filas dinámicamente -->
+        </tbody>
+    </table>
+
+    <div>
+        <button type="submit" class="form-buton">registratu</button>
+    </div>
+</form>
+
+<!-- Importamos el JavaScript -->
+<script src="../script/Bidai.js"></script>
+<script src="datuak-cargatubidaiak.js"></script>
+
+</body>
+</html>

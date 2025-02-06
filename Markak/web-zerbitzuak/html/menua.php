@@ -1,13 +1,19 @@
+<?php
+session_start();
+require "conexion.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/estiloa.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Login</title>
   </head>
   <body id="bodylogin">
-    <section id="sectionlogin">
+  <section id="sectionlogin">
       <div class="form-box">
         <div class="form-value">
           <form action="html/menua.php" method="post">
@@ -55,13 +61,36 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script>
-      document
-        .getElementById("ikusiPasahitza")
-        .addEventListener("change", function () {
-          const passwordField = document.getElementById("pasahitza");
-          passwordField.type = this.checked ? "text" : "password";
-        });
-    </script>
+    
   </body>
 </html>
+
+
+<?php
+$erabiltzailea = htmlspecialchars(trim($_POST['erabiltzailea']));
+$pasahitza = htmlspecialchars(trim($_POST['pasahitza']));
+
+$sql = "SELECT izena, pasahitza FROM agentzia WHERE izena = '$erabiltzailea' and pasahitza = '$pasahitza'";
+echo $erabiltzailea;
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+    $user = $result->fetch_assoc();
+
+        header("Location: hasiera.html");
+        exit();
+      
+} else {
+    echo "<script>
+        setTimeout(function(){
+        alert('Erabiltzailearen izena ez da existitzen.');
+        },25);
+        setTimeout(function(){
+        window.location.href = '../index.html';
+        },26);
+        </script>";
+    exit();
+}
+$stmt->close();
+?>

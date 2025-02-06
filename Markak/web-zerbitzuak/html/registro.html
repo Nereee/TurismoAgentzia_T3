@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="eu">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+        <title> Login </title>
+    </head>
+    <body id="bodylogin">
+        <section id="sectionlogin">
+            <div class="form-box">
+                <div class="form-value">
+                    <form action="registro.php" method="post">
+                        <h2 id="h2login"> Erregistratu </h2>
+                        <div class="inputbox">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="text" name="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="inputbox">
+                            <input type="text" name="logoa" required>
+                            <label for="logoa">Logoa</label>
+                        </div>
+                        
+                            <label for="langilekop">Langile kopuru</label>
+                            <br>
+                            <hr>
+                            <select id="langilekop" name="langilekop" required>
+                                <option value="null" style="visibility: hidden;">--AUKERATU--</option>
+                                <option value="L1">(1-5) artean </option>
+                                <option value="L2">(6-10) artean </option>
+                                <option value="L3">(11-20) artean </option>
+                                <option value="L4">(20+ ) baino gehiago </option>
+                              </select>
+                              <br>
+                            <label for="agentziamota">Agentzia mota</label>
+                            <br>
+                            <hr>
+                            <select id="agentziamota" name="agentziamota" required>
+                                <option value="null" style="visibility: hidden;">--AUKERATU--</option>
+                                <option value="A1">Mayorista </option>
+                                <option value="A2">Minorista </option>
+                                <option value="A3">Mayorista-minorista </option>
+                            </select>
+                            <div class="inputbox">
+                                <ion-icon name="accessibility-outline"></ion-icon>
+                                <input type="text" name="izena" required>
+                                <label for="izena">Enpresa izena</label>
+                            </div>
+                        <div class="inputbox">
+                            <input type="text" name="kolorea" required>
+                            <label for="kolorea">Markaren kolorea</label>
+                        </div>
+                        <div class="inputbox">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" name="pasahitza" required>
+                            <label for="pasahitza">Pashitza</label>
+                        </div>
+                        <button type="submit" class="form-buton">registratu</button>
+                        </div>                       
+                    </form>
+                </div>
+            </div>       
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
