@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/estiloa.css" />
+    <title>Hasiera</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="AlexJav" />
+    <meta name="keywords" content="html5, css, elorrieta, DAM, DAM-d" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img
+          class="logoAlexJav"
+          src="../img/logoAlexjavexplorers.png"
+          alt="Logo"
+          width="170"
+          height="110"
+        />
+        <nav>
+          <a href="hasiera.html">Hasiera</a>
+          <a href="../index.html" onclick="seguruZaude(event)">Log out</a>
+        </nav>
+      </div>
+      <div id="overlay" class="overlay">
+        <div class="dialog">
+          <p>Seguru zaude atera nahi zarela?</p>
+          <button class="bai-btn" onclick="erantzunaBaiEz(true)">BAI</button>
+          <button class="ez-btn" onclick="erantzunaBaiEz(false)">EZ</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="aside1">
+        <a href="#">Bidaiak Erregistratu</a>
+        <a href="#">Zerbitzuak Erregistratu</a>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/70a4837970.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+       function seguruZaude(event) {
+            event.preventDefault();
+            document.getElementById("overlay").style.visibility = "visible";
+        }
+        
+        function erantzunaBaiEz(erantzuna) {
+            if (erantzuna) {
+                alert("saioa ixten");
+                window.location.href = "../index.html"; // Agrega la URL aquí
+            } else {
+                document.getElementById("overlay").style.visibility = "hidden";
+            }
+        }
+    </script>
+  </body>
+</html>
