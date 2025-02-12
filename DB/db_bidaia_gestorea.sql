@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 04-02-2025 a las 12:59:33
+-- Tiempo de generación: 07-02-2025 a las 12:42:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `agentzia`
 --
+drop database if exists db_bidaia_gestorea;
+create database if not exists db_bidaia_gestorea;
+use db_bidaia_gestorea;
 
 CREATE TABLE `agentzia` (
   `KODEA` int(11) NOT NULL,
@@ -47,9 +50,9 @@ INSERT INTO `agentzia` (`KODEA`, `Langile_Kopuru_Kodea`, `LOGOA`, `MARKAREN_KOLO
 (3, 'L1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4MLp_J94GZCi_ikNpyKLLFRhwVjmQexGQ6w&s', '#2f9c28', 'ViajesElCorteIngles', 'A1', '1234'),
 (5, 'L3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF4_wkKdkl4K9x6E_kRhzTcKpScQUnOdwJJA&s', '#004dff', 'Vueling', 'A1', 'Vueling'),
 (9, 'L3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnvvyZ9BIeU4nun173k2eAWjaizbGuQreVZg&s', '#009999', 'SkyScanner', 'A1', 'SkyScanner'),
-(10, 'L2', 'asdasd#009999', 'asdasd#009999', NULL, 'A3', 'asdasd#009999'),
+(10, 'L2', 'asdasd#009999', 'asdasd#009999', 'asdasd#009999', 'A3', 'asdasd#009999'),
 (11, 'L1', 'asdasd#009999', 'asdasd', NULL, 'A2', 'perolachupamal'),
-(12, 'L1', 'admin2', 'admin2', NULL, 'A2', 'admin2');
+(12, 'L1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnvvyZ9BIeU4nun173k2eAWjaizbGuQreVZg&s', '#004dff', 'admin2', 'A2', 'admin2');
 
 -- --------------------------------------------------------
 
@@ -150,6 +153,13 @@ CREATE TABLE `beste_batzuk` (
   `Prezioa` decimal(6,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `beste_batzuk`
+--
+
+INSERT INTO `beste_batzuk` (`Zerbitzu_kodea`, `Egun`, `Deskribapena`, `Prezioa`) VALUES
+(4, '2025-02-15', 'asdf', 154.00);
+
 -- --------------------------------------------------------
 
 --
@@ -218,6 +228,14 @@ CREATE TABLE `hegaldia` (
   `Helmugako_aireportua` varchar(50) DEFAULT NULL,
   `AIRELINEA_KODEA` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hegaldia`
+--
+
+INSERT INTO `hegaldia` (`Zerbitzu_kodea`, `Hegaldi_kodea`, `Irteera_data`, `Irteera_ordutegia`, `Bidaiaren_iraupena`, `Prezioa`, `Jatorrizko_aireportua`, `Helmugako_aireportua`, `AIRELINEA_KODEA`) VALUES
+(1, 'H1', '2025-02-07', '13:13:09', '01:13:09', 109.00, 'DUS', 'ATH', 'WK'),
+(2, 'H2', '2025-02-12', '08:38:14', '07:38:14', 1643.00, 'BCN', 'BCN', 'A.C.');
 
 -- --------------------------------------------------------
 
@@ -428,6 +446,13 @@ CREATE TABLE `joan_eta_etorri` (
   `Bueltako_AIRELINEA_KODEA` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `joan_eta_etorri`
+--
+
+INSERT INTO `joan_eta_etorri` (`Zerbitzu_kodea`, `Hegaldi_kodea_etorri`, `Itzulera_ordua`, `Etorria_eguna`, `bueltako_iraupena`, `Jatorrizko_aireportua`, `Helmugako_aireportua`, `Bueltako_AIRELINEA_KODEA`) VALUES
+(2, 'H1', '20:14:37', '2025-02-14', '02:14:37', 'ALC', 'BCN', 'AY');
+
 -- --------------------------------------------------------
 
 --
@@ -485,6 +510,13 @@ CREATE TABLE `ostatua` (
   `logela_m_kodea` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `ostatua`
+--
+
+INSERT INTO `ostatua` (`Zerbitzu_kodea`, `Prezioa`, `Sarrera_eguna`, `Irtera_eguna`, `hiria`, `izena`, `logela_m_kodea`) VALUES
+(3, 123.00, '2025-02-14', '2025-02-22', 'asdaa', 'asdasd', 'SIN');
+
 -- --------------------------------------------------------
 
 --
@@ -496,6 +528,16 @@ CREATE TABLE `zerbitzuak` (
   `Izena` varchar(30) DEFAULT NULL,
   `Bidaiaren_kodea` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `zerbitzuak`
+--
+
+INSERT INTO `zerbitzuak` (`Kodea`, `Izena`, `Bidaiaren_kodea`) VALUES
+(1, 'Hegaldia', 3),
+(2, 'Joan_Etorri', 3),
+(3, 'Ostatua', 3),
+(4, 'Beste', 3);
 
 --
 -- Índices para tablas volcadas
@@ -618,7 +660,7 @@ ALTER TABLE `bidaia`
 -- AUTO_INCREMENT de la tabla `zerbitzuak`
 --
 ALTER TABLE `zerbitzuak`
-  MODIFY `Kodea` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Kodea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
